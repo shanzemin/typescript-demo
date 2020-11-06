@@ -15,6 +15,26 @@ export default (appInfo: EggAppInfo) => {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
 
+  config.security = {
+    csrf: false
+  }
+
+  config.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1/ts-demo',
+      options: {
+        useFindAndModify: false,
+        useUnifiedTopology: true
+      }
+    }
+  }
+
+  config.console = {
+    // local 环境下默认值均为 true，prod 环境下均为 false
+    debug: true,
+    error: true
+  }
+
   // the return config will combines to EggAppConfig
   return {
     ...config,

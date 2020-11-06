@@ -1,15 +1,19 @@
 import { Service } from 'egg';
 
 /**
- * Test Service
+ * User Service
  */
-export default class Test extends Service {
+export default class User extends Service {
 
-  /**
-   * sayHi to you
-   * @param name - your name
-   */
-  public async sayHi(name: string) {
-    return `hi, ${name}`;
+  public async list() {
+    const { ctx } = this
+    const users = await ctx.model.User.find()
+    return users
+  }
+
+  public async create (data: Object) {
+    const { ctx } = this
+    const users = await ctx.model.User.create(data)
+    return users
   }
 }
