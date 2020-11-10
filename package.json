@@ -13,12 +13,12 @@
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test-local": "egg-bin test",
-    "test": "standard -- --fix && npm run test-local",
+    "test": "standard --fix && standard && npm run test-local",
     "cov": "egg-bin cov",
     "tsc": "ets && tsc -p tsconfig.json",
     "ci": "npm run lint && npm run cov && npm run tsc",
     "autod": "autod",
-    "lint": "eslint . --ext .ts",
+    "lint": "standard",
     "clean": "ets clean"
   },
   "dependencies": {
@@ -37,8 +37,6 @@
     "egg-ci": "^1.8.0",
     "egg-console": "^2.0.1",
     "egg-mock": "^3.16.0",
-    "eslint": "^6.7.2",
-    "eslint-config-egg": "^8.0.0",
     "standard": "^15.0.0",
     "tslib": "^1.9.0",
     "typescript": "^3.0.0"
